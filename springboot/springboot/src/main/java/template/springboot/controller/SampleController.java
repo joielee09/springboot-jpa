@@ -32,4 +32,11 @@ public class SampleController {
     @CrossOrigin("*")
     @ResponseBody
     public List<Item> getStock(){ return stockService.getStock(); }
+
+    @GetMapping("api/item")
+    @CrossOrigin("*")
+    @ResponseBody
+    public List<Item> getItem(@RequestParam(value = "id", required = true) Integer id){
+        return stockService.getItem(id);
+    }
 }

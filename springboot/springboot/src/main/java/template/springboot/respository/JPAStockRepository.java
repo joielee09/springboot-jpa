@@ -20,10 +20,13 @@ public class JPAStockRepository implements StockRepository{
 
     @Override
     public List<Item> getStock() {
-        String hql = "FROM STOCK";
-        List<Item> result = em.createNativeQuery("SELECT * FROM STOCK", Item.class)
+        return em.createNativeQuery("SELECT * FROM STOCK", Item.class)
                 .getResultList();
-        System.out.println(result);
-        return result;
+    }
+
+    @Override
+    public List<Item> getItem(Integer ID) {
+        return em.createNativeQuery("SELECT * FROM STOCK WHERE ID="+ID, Item.class)
+                .getResultList();
     }
 }

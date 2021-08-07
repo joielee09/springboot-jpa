@@ -8,4 +8,5 @@ import java.util.List;
 @Repository
 public interface StockRepository {
     List<Item> getStock();
+    List<Item> getItem(Integer ID);
 }
